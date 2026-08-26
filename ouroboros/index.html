@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ouroboros Pose Editor v8</title>
+<style>
+html,body{height:100%;margin:0;background:#090b10;color:#eee;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{display:grid;place-items:center}
+#status{padding:20px;text-align:center;max-width:34rem;line-height:1.45}
+</style>
+</head>
+<body>
+<div id="status">Loading Ouroboros Pose Editor v8…</div>
+<script>
+(async()=>{
+  const expected="13d751749029211b701bbaf4c23eb1f09b68fec2a9799fe449a1886094eb2690";
+  const files=[
+    "v8/part-00.b64","v8/part-01.b64","v8/part-02.b64","v8/part-03.b64","v8/part-04.b64","v8/part-05.b64",
+    "v8/part-06a.b64","v8/part-06b.b64","v8/part-06c.b64","v8/part-06d.b64",
+    "v8/part-07a.b64","v8/part-07b.b64","v8/part-07c.b64","v8/part-07d.b64",
+    "v8/part-08.b64"
+  ];
+  try{
+    const parts=await Promise.all(files.map(async file=>{
+      const r=await fetch(file,{cache:"no-store"});
+      if(!r.ok)throw new Error(`${file}: HTTP ${r.status}`);
+      return r.text();
+    }));
+    const b64=parts.join("").replace(/\s/g,"");
+    const bin=atob(b64);
+    const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+    const digest=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",bytes)),b=>b.toString(16).padStart(2,"0")).join("");
+    if(digest!==expected)throw new Error(`integrity check failed (${digest.slice(0,12)}…)`);
+    const html=new TextDecoder("utf-8").decode(bytes);
+    document.open();
+    document.write(html);
+    document.close();
+  }catch(err){
+    document.getElementById("status").textContent="Could not load Ouroboros v8: "+err.message;
+  }
+})();
+</script>
+</body>
+</html>
