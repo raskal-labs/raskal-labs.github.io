@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+OUROBOROS POSE EDITOR — WORKING SPEC (v8)
+
+Single-file, offline, touch-first HTML app for dev HTML Playground (dHP) on iPhone.
+This file is an incremental extension of the supplied working baseline: preserve the canvas
+renderer, continuous Catmull-Rom snake, point-zero HEAD / last-point TAIL semantics,
+TAIL→HEAD arrows, Edit/Move/Pan separation, viewport-only pan/zoom, endpoint controls,
+diagnostics, snapshots, JSON import/export, collapsible mobile UI, and iOS compatibility.
+
+Scene depth is 0..14 with 6.5 as the normal reference and larger values closer to viewer.
+Perspective Strength affects apparent illustration scale/thickness independently of viewport
+zoom. Earth has x/y/depth/scale/lock state; Moon is Earth-relative and follows Earth.
+Snake control points carry x/y/depth/manual-width/Earth-topology/contact metadata.
+Explicit Earth and self-crossing topology overrides always beat automatic classification.
+
+Input model:
+- Tap/left-click a control point to select it; drag it in Edit mode to pose it.
+- Move mode moves only the snake. Pan mode moves only the viewport.
+- When Earth is unlocked, dragging Earth in Edit mode moves Earth (and therefore Moon).
+- Long-press a snake segment to insert a control point at that curve location.
+- Long-press a control point opens point actions; right-click opens the same contextual menu.
+- Double-click a snake segment inserts a point. Existing Add/Delete buttons remain available.
+- Two-finger pinch and two-finger translation zoom/pan the viewport simultaneously.
+- Mouse wheel/trackpad zooms around the pointer; Shift+wheel pans; middle-drag or Space+drag pans.
+- Keyboard: E/M/P modes, Cmd/Ctrl+Z undo, Cmd/Ctrl+Shift+Z redo, Delete/Backspace deletes an
+  eligible point, +/- zooms, Escape closes transient UI. Shortcuts are suppressed in form fields.
+
+All numeric slider controls expose minus/plus buttons and an editable numeric value. Typed
+values clamp to the control range. Holding minus/plus repeats. One slider or held-button gesture
+creates one undo step. Viewport pan/zoom is excluded from undo history.
+
+Undo/redo stores compact meaningful scene snapshots (limit 50). Autosave uses localStorage and
+restores on reload. JSON schema is version 8. Version-4 signed-depth JSON is migrated with
+z -> clamp(z + 6.5, 0, 14); version-7 state is accepted with obsolete Length Lock and pixel-filter
+fields ignored. Named checkpoints store pose snapshots but checkpoint creation/deletion does not
+pollute pose undo history.
+
+Topology: Earth occlusion is automatic with per-point AUTO/FRONT/BEHIND overrides. Self-crossing
+analysis uses polyline segment intersections clustered by stable control-span pairs; manual crossing
+front choices survive ordinary point motion and are remapped where practical across point insertion/
+deletion. Diagnostic view can show transitions, crossing markers, contacts, gaze, depth and guides.
+
+Additional editor features: Earth/Moon controls; snake outline; profile head rotation, neck width,
+eye openness/position/gaze, mouth openness and diagnostic gaze arrow; tail direction/curvature;
+manual body-width multipliers; contact markers/shadows; ouroboros reference circle, mouth-to-tail
+guide and closure preview; one simple directional illustration light; clean/diagnostic modes;
+current spline arc-length readout; clean/diagnostic snapshots; gesture-help sheet.
+
+Removed by design: Length Lock/constraint solver and pixel-art post-processing. They proved harmful
+or unhelpful to posing and are intentionally not part of schema v8.
+
+Non-goals: no animation, WebGL, arbitrary 3D camera rotation, physics engine, skeletal rig,
+real orbital simulation, axial Earth rotation, PBR, multiple lights, or ray tracing.
+-->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Ouroboros Pose Editor</title>
+<style>
+:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#090b10}body{touch-action:none}canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+#topbar{position:fixed;z-index:20;top:calc(8px + env(safe-area-inset-top));left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));height:48px;display:grid;grid-template-columns:1fr auto auto auto auto;gap:5px;align-items:center;padding:5px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(18,19,24,.84);backdrop-filter:blur(12px)}
+#modeGroup{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.miniTop{min-width:36px;padding:5px 7px}#selectionLabel{min-width:54px;text-align:center;font-size:10px;font-weight:800;color:#eee}button{border:0;border-radius:10px;min-height:36px;padding:5px 8px;font-size:11px;font-weight:750;background:#ececef;color:#111}button.active{background:#8fd2ff}button:disabled{opacity:.35}
+#sheet{position:fixed;z-index:20;left:max(8px,env(safe-area-inset-left));right:max(8px,env(safe-area-inset-right));bottom:calc(8px + env(safe-area-inset-bottom));height:54px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(18,19,24,.90);backdrop-filter:blur(14px);overflow:hidden;transition:height .2s ease}#sheet.expanded{height:min(62vh,620px)}#sheetHandle{height:52px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;padding:7px 10px;cursor:pointer}#handleChevron{font-size:18px;width:24px;text-align:center}#handleTitle{font-size:12px;font-weight:750}#handleDepth{font-size:11px;font-weight:800;opacity:.9}#sheetBody{height:calc(100% - 52px);overflow-y:auto;overscroll-behavior:contain;border-top:1px solid rgba(255,255,255,.10);padding:10px}
+.controlRow{display:grid;grid-template-columns:74px 1fr 58px;align-items:center;gap:8px;margin-bottom:9px}.controlRow label{font-size:11px;opacity:.82}.controlValue{font-size:11px;font-weight:750;text-align:right}.numericRow{grid-template-columns:74px 30px minmax(70px,1fr) 30px 70px;gap:5px}.numericRow .controlValue{display:none}.stepBtn{min-width:30px;min-height:30px;height:30px;padding:0;font-size:16px;line-height:1}.numericInput{width:70px;min-width:0;min-height:30px;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:#090b10;color:#eee;padding:4px 5px;font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right}.numericInput:disabled{opacity:.35}input[type=range]{width:100%;min-width:0}.readOnlyRow{grid-template-columns:74px 1fr}.readOnlyValue{font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right;opacity:.9}select{width:100%;min-height:34px;border:0;border-radius:8px;background:#ececef;color:#111;font-size:11px;font-weight:700;padding:4px 6px}.triButtons,.quadButtons{display:grid;gap:6px;margin-bottom:10px}.triButtons{grid-template-columns:repeat(3,1fr)}.quadButtons{grid-template-columns:repeat(4,1fr)}.section{border-top:1px solid 
