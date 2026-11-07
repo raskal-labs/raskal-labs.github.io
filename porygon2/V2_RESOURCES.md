@@ -2,6 +2,18 @@
 
 Collected: **2026-11-07**. This file is a curated starting kit, **not** a dependency lockfile and not evidence these assets were downloaded into the repo. Verify exact versions, file licenses and browser support before vendoring.
 
+## Ready-to-run fixture acquisition
+
+A pinned downloader is now committed as [tools/fetch-v2-fixtures.sh](./tools/fetch-v2-fixtures.sh). Run it from the repo root (requires `curl`):
+
+```bash
+bash porygon2/tools/fetch-v2-fixtures.sh
+```
+
+It downloads three small **CC0 model asset** families at Khronos revision `8f492390ddc7a2ae221a1369ef560589cf8c70fb` (2026-10-23): `AnimatedMorphCube` (GLB/morph), `SimpleSkin` (glTF/multiple sidecars/rig) and `SimpleTexture` (glTF/texture). Individual upstream `LICENSE.md` files, provenance and local `SHA256SUMS` accompany the files. The license documentation itself can be CC-BY-4.0.
+
+Output: `porygon2/v2/tests/fixtures/khronos/` (ignored by Git). It intentionally does **not** download private `233.glb` or any Pokémon reference assets. A Draco regression asset can be generated locally from CC0 AnimatedMorphCube using glTF Transform, after the tool is installed. **The download script has not yet been executed in a network-capable development environment.**
+
 ## Existing reusable source (in this repository)
 
 | Path | Reuse strategy |
