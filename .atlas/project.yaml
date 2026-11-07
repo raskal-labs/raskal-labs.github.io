@@ -1,0 +1,25 @@
+# Atlas v2 source binding for the Porygon model viewer within this multipurpose Pages repository.
+# Project-local state/work are authoritative; this file intentionally does not repeat them.
+version: 2
+project:
+  id: porygon-viewer
+authority:
+  rules: porygon2/AGENTS.md
+  state:
+    path: porygon2/PROJECT.yaml
+    profile: atlas-project/v1
+  plan:
+    path: porygon2/WORK.yaml
+    profile: atlas-work/v1
+  tasks:
+    path: porygon2/WORK.yaml
+    profile: atlas-work/v1
+  threads:
+    path: porygon2/WORK.yaml
+    profile: atlas-work/v1
+  decisions: porygon2/DECISIONS.md
+  architecture: porygon2/ARCHITECTURE.md
+  contract: porygon2/CONTRACT.md
+  progress: porygon2/PROGRESS.md
+git:
+  authoritative_branch: main
