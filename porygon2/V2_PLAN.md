@@ -16,7 +16,7 @@ Create a general-purpose, **iPhone-first** 3D viewer, inspection and comparison 
 - `porygon2/index.html` (~775 lines): viewer, shader code, hardcoded models, 4-entry `palette[4]`, OBJ imports, OrbitControls plus custom pitch/yaw/roll/zoom/analog controls, saved camera JSON.
 - `porygon2/render-lab.js` (~698 lines): effects, comparison, parts, scene lighting, 4-colour custom palette, localStorage looks, PNG export.
 - `porygon2/Porygon2.obj`, `Porygon2-upright.obj`, `Porygon2.mtl`, `edit_model.py`; `chief/` assets stay unchanged.
-- `porygon2/tests/viewer-smoke.mjs`, `.github/workflows/viewer-smoke.yml` already exist. CI installs Playwright Chromium **and** WebKit but current smoke script executes Chromium only; actually run WebKit tests in V2.
+- `porygon2/tests/viewer-smoke.mjs`, `.github/workflows/viewer-smoke.yml` already exist. CI installs Playwright Chromium **and** WebKit, and the current smoke script runs both. Preserve and extend both paths in V2; do not mistake Linux WebKit emulation for actual iPhone Safari.
 - V1 defaults: Pixel, Reactive 2 px, Original colours, Native. Preserve via a named preset, with visual snapshots.
 - V1/Porygon2 path must remain usable during V2 rollout. Do not overwrite old files just to reorganize them.
 - User-supplied `233.glb` is a **private/manual test fixture**, not a public redistributable model. It is Draco-compressed, has texture and rig data per prior inspection; do not embed in public repo or assume Codex can fetch it.
