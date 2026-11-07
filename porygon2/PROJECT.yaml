@@ -1,0 +1,55 @@
+# Canonical source-owned project continuity; one record, selected by .atlas/project.yaml.
+# Shared Atlas profile: atlas-project/v1
+version: 1
+projects:
+  porygon-viewer:
+    title: Porygon 3D Viewer / Model Studio
+    parent: atlas.porygon
+    purpose: >-
+      Provide a touch-first, reusable 3D model viewer, appearance studio and
+      reference-comparison workspace, with small reversible editing tools,
+      while preserving the existing simplified Porygon2 and Chief artwork.
+    status: In Progress
+    lifecycle: active
+    current: >-
+      V1 operates at /porygon2/ with Porygon2 and Chief, multiple render looks,
+      custom touch/camera controls and comparison. The hybrid V2 strategy,
+      Codex issue #7, implementation plan, development references and pinned
+      fixture-fetch script are recorded on main. V2 runtime, new GUI, reference
+      alignment, general-purpose GLB/Draco import and editable project format
+      have not been implemented or validated. Existing Playwright Chromium and
+      Linux WebKit smoke artifacts are historical evidence, not real iPhone
+      Safari acceptance.
+    next_checkpoint: >-
+      Review Pages deployment and capture reproducible V1 visual baselines
+      (M0); in parallel prototype competing iPhone V2 interfaces, then submit
+      a minimal independent GLB/Draco loader M1 PR without disturbing V1.
+    issues:
+      - id: safari-baseline
+        kind: question
+        text: >-
+          Historical browser screenshots are available, but matched reproducible
+          V1 baseline renders and real-device Safari checks have not been
+          completed for V2 acceptance.
+        source: porygon2/PROGRESS.md
+      - id: fixture-233
+        kind: question
+        text: >-
+          The privately supplied Draco-compressed 233.glb is not a public
+          distributable fixture; its availability to Codex and its successful
+          on-device rendering remain unverified.
+        source: porygon2/V2_RESOURCES.md
+      - id: atlas-enrollment
+        kind: question
+        text: >-
+          The local Atlas v2 binding exists, but registration/mapping of this
+          viewer-specific project into the central Atlas cross-project index is
+          separate and not yet verified. Do not equate source binding with
+          successful dashboard enrollment.
+        source: porygon2/PROGRESS.md
+    evidence:
+      - porygon2/README.md
+      - porygon2/V2_PLAN.md
+      - porygon2/V2_RESOURCES.md
+      - porygon2/PROGRESS.md
+      - https://github.com/raskal-labs/raskal-labs.github.io/issues/7
