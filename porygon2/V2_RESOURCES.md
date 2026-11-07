@@ -22,8 +22,8 @@ Output: `porygon2/v2/tests/fixtures/khronos/` (ignored by Git). It intentionally
 | `porygon2/chief/` | Textured OBJ/MTL and PNG dependency fixture. |
 | `porygon2/index.html` | Extract/adapt camera JSON, geometry framing, outline/pixel shader ideas, NOT hardcoded colour/part classification or V1 UI. |
 | `porygon2/render-lab.js` | Port effects, looks, presets, before/after and compare concepts as isolated modules. |
-| `porygon2/tests/viewer-smoke.mjs` | Extend smoke + screenshot coverage; currently Chromium-specific. |
-| `.github/workflows/viewer-smoke.yml` | CI starting point; installs Chromium and WebKit, runs Chromium-only script. |
+| `porygon2/tests/viewer-smoke.mjs` | Extend smoke + screenshot coverage; currently exercises Chromium and Linux WebKit. |
+| `.github/workflows/viewer-smoke.yml` | CI starting point; installs Chromium and WebKit, and the current script tests both. Preserve and extend their screenshot coverage. |
 | `porygon2/README.md`, `RENDER_LAB.md` | Legacy behaviour/quality reference, not new architecture. |
 
 ## Engine, loaders and colour management
@@ -81,7 +81,7 @@ The sample collection has **per-asset** licenses; do not treat every model as CC
 - Verify imported original materials on a known PBR asset, with no forced four-colour remapping.
 - Compare view in portrait iPhone sizes with safe areas; test camera+selection gestures and scrollable bottom sheets; keyboard focus/VoiceOver labels. Do not globally block accessibility zoom just to prevent canvas gestures.
 - Check constrained memory: downscale postprocess render targets when appropriate, dispose textures/materials/URLs, handle WebGL context loss and rapid file switching.
-- Run WebKit and Chromium in CI; perform **manual on-device Safari testing** for iOS gestures, file-picker behaviour, FPS and camera rendering.
+- Continue running WebKit and Chromium in CI; perform **manual on-device Safari testing** for iOS gestures, file-picker behaviour, FPS and camera rendering.
 - Measure before setting performance budgets. Avoid claiming smooth real-device rendering from desktop emulation alone.
 
 ## Optional acquisition workflow (Codex should implement at M0/M1)
