@@ -1,4 +1,6 @@
-# 3D Viewer V2 — hybrid rebuild / Codex implementation contract
+# 3D Viewer V2 — hybrid rebuild / Codex implementation reference
+
+> **Design/implementation reference, not canonical progress.** Atlas project state is in [PROJECT.yaml](./PROJECT.yaml); milestone/task statuses and acceptance are in [WORK.yaml](./WORK.yaml); binding invariants are in [CONTRACT.md](./CONTRACT.md). Sections below retain the original approved implementation strategy; progress must be reconciled in canonical files.
 
 Status: **Proposed implementation plan** (planning only; no V2 code has been implemented).
 Last reviewed: 2026-11-07.
