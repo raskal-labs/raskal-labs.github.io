@@ -1,0 +1,259 @@
+# Canonical roadmap, task and thread records (atlas-work/v1).
+# Human roadmap/task files are explanatory reading views, never competing status sources.
+version: 1
+project: porygon-viewer
+items:
+  - id: m0
+    kind: milestone
+    title: M0 — Baseline, deployment safety and preview route
+    status: Proposed
+    acceptance: >-
+      Deterministic V1 screenshot/reference baselines for Porygon2 and Chief;
+      browser smoke evidence; recorded source/asset revisions; verified Pages
+      publication strategy; independent /porygon2/v2/ route and pinned build
+      dependencies without changing production V1.
+    evidence:
+      - porygon2/V2_PLAN.md
+
+  - id: m1
+    kind: milestone
+    title: M1 — Source-faithful, format-independent viewer
+    status: Proposed
+    acceptance: >-
+      An isolated V2 preview can import GLB/glTF including Draco and OBJ+MTL,
+      preserve source materials/textures/skin/morphs where supported, fit and
+      orbit models on touch, and report format/dependency failures. Test with
+      redistributable fixtures plus explicit private 233.glb manual results.
+      V1 remains functional.
+    evidence:
+      - porygon2/V2_PLAN.md
+
+  - id: m2
+    kind: milestone
+    title: M2 — Model-independent render looks and palettes
+    status: Proposed
+    acceptance: >-
+      Original materials remain faithful and recoverable when switching looks.
+      Reused Pixel/Flat/Cel and key outlines/effects work on arbitrary models;
+      legacy Porygon2 appearance is reproducible as a preset without shader
+      palette[4] or semantic body-part dependencies.
+    evidence:
+      - porygon2/V2_PLAN.md
+
+  - id: m3
+    kind: milestone
+    title: M3 — Canvas-first, iPhone-first interface
+    status: Proposed
+    acceptance: >-
+      Usable canvas-first View/Look/Inspect/Compare GUI with adaptive controls,
+      hideable sheets and an optional precision/retro controller, supported
+      by tested mobile prototypes and no major gesture conflicts.
+    evidence:
+      - porygon2/V2_UX_REFERENCES.md
+
+  - id: m4
+    kind: milestone
+    title: M4 — Part inspection and reference comparison
+    status: Proposed
+    acceptance: >-
+      Tap and precision-select parts, inspect hierarchy and materials/bones;
+      compare models in synchronized split view and optional opacity overlay;
+      preserve explicit real-scale versus normalized comparison and reference
+      positioning without a second independent model-loading path.
+    evidence:
+      - porygon2/V2_PLAN.md
+
+  - id: m5
+    kind: milestone
+    title: M5 — Reversible object editing and portable projects
+    status: Proposed
+    acceptance: >-
+      Reversible object transforms/material overrides with undo/redo, a
+      versioned portable project format and distinct image/model/project
+      export paths, validated without promising mesh sculpting or rigging.
+    evidence:
+      - porygon2/V2_PLAN.md
+
+  - id: docs-source-authority
+    kind: task
+    title: Establish Atlas project identity, local authority and continuity documents
+    parent: m0
+    priority: P0
+    status: Verified
+    acceptance: >-
+      A tracked v2 Atlas source binding, schema-shaped PROJECT.yaml and WORK.yaml,
+      contract, decision/architecture records, progress evidence and human
+      roadmap/task entrypoints exist with one authoritative home per fact.
+      This verifies repository documents only, not central Atlas enrollment.
+    evidence:
+      - .atlas/project.yaml
+      - porygon2/PROJECT.yaml
+      - porygon2/WORK.yaml
+      - porygon2/CONTRACT.md
+      - porygon2/PROGRESS.md
+
+  - id: v1-browser-evidence
+    kind: task
+    title: Locate historical V1 CI screenshot artifacts
+    parent: m0
+    priority: P1
+    status: Verified
+    acceptance: >-
+      Record the two November 4 PR #6 screenshot artifact runs and what they
+      actually exercise, distinguishing Chromium/Linux WebKit from iPhone Safari.
+    evidence:
+      - porygon2/V2_UX_REFERENCES.md
+      - https://github.com/raskal-labs/raskal-labs.github.io/actions/runs/41888284311
+      - https://github.com/raskal-labs/raskal-labs.github.io/actions/runs/41887824513
+
+  - id: m0-baselines
+    kind: task
+    title: Capture deterministic V1 image baselines and validate CI scope
+    parent: m0
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Same viewport, camera, palettes and models across screenshots; hashed
+      local fixtures; successful test logs and explicit missing Safari tests.
+      Historical chat screenshots remain reference only until separately
+      provided to the developer with permission.
+    evidence:
+      - porygon2/V2_UX_REFERENCES.md
+
+  - id: pages-publication
+    kind: task
+    title: Verify GitHub Pages publication and add safe V2 preview route
+    parent: m0
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Current publication mechanism is documented; independent V2 preview
+      deploys without breaking V1 or other Pages paths; rollback is tested.
+
+  - id: fetch-fixtures
+    kind: task
+    title: Execute and verify the pinned public glTF fixture acquisition
+    parent: m0
+    priority: P1
+    status: Proposed
+    acceptance: >-
+      Run fetch-v2-fixtures.sh in network-capable workspace; verify upstream
+      file set and licenses, SHA-256 provenance, and generated local Draco
+      fixture. Script existing in Git is not execution evidence.
+    evidence:
+      - porygon2/tools/fetch-v2-fixtures.sh
+
+  - id: ui-prototype-a
+    kind: task
+    title: Prototype A — Minimal canvas-first mobile view
+    parent: m3
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Test view, selection, Look sheet, comparison and optional edit using
+      fixed mobile screenshots, safe-area and occlusion observations.
+
+  - id: ui-prototype-b
+    kind: task
+    title: Prototype B — Adaptive selection-driven workspace
+    parent: m3
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Same scenarios and viewport as A, including small-part precision
+      selection, selection actions and portrait/landscape behaviour.
+
+  - id: ui-prototype-c
+    kind: task
+    title: Prototype C — Configurable modular controller workspace
+    parent: m3
+    priority: P1
+    status: Proposed
+    acceptance: >-
+      Same scenarios and viewport as A/B, keeping existing retro-control
+      affordances optional; compare taps, occlusion and gesture conflicts.
+
+  - id: ui-design-review
+    kind: task
+    title: Review prototype evidence and accept an interaction pattern
+    parent: m3
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Select/merge only the best-evidenced interaction patterns, record
+      rationale and remaining tradeoffs in DECISIONS.md before a full UI build.
+
+  - id: m1-loader-spike
+    kind: task
+    title: Build a minimal faithful GLB/Draco and OBJ touch viewer
+    parent: m1
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      PR with single loader, good source materials, local Files picker, basic
+      camera/fit/errors and Chromium + WebKit evidence. No V1 route changes.
+
+  - id: m2-look-port
+    kind: task
+    title: Extract and regression-test reusable legacy render algorithms
+    parent: m2
+    priority: P0
+    status: Proposed
+    acceptance: >-
+      Clean look pipeline with source-colour integrity, configurable output
+      palette and reproducible legacy screenshot; no Porygon mesh-name mapping.
+
+  - id: m4-compare
+    kind: task
+    title: Implement shared-loader compare and reference alignment
+    parent: m4
+    priority: P1
+    status: Proposed
+    acceptance: >-
+      Synchronized views, manual alignment, explicit scale handling, inspect/
+      hide/isolate and 2D reference overlays, tested for accidental occlusion.
+
+  - id: m5-projects
+    kind: task
+    title: Add reversible object transform history and portable projects
+    parent: m5
+    priority: P1
+    status: Proposed
+    acceptance: >-
+      Non-destructive overrides and undo round-trip through a versioned export
+      on iOS/desktop; no unsupported lossless-model-export claim.
+
+  - id: tiny-selection
+    kind: thread
+    title: Evaluate offset precision selection for tiny mesh parts
+    parent: m3
+    priority: P1
+    status: Proposed
+    details: >-
+      Compare Onshape-like crosshair/magnifier versus simple tap/raycast,
+      including accidental camera orbit, screen occlusion and accessibility.
+    evidence:
+      - porygon2/V2_UX_REFERENCES.md
+
+  - id: v1-anatomy
+    kind: thread
+    title: Refine simplified Porygon2 geometry separately from viewer rebuild
+    parent: m4
+    priority: P2
+    status: Proposed
+    details: >-
+      Light-touch bill, eyes, neck, belly, feet and tail corrections require
+      authoritative reference angles and comparative evidence. Preserve
+      original simplified geometry; do not turn V2 viewer work into a remodel.
+
+  - id: atlas-projection
+    kind: thread
+    title: Reconcile viewer identity with central Atlas project index
+    parent: m0
+    priority: P1
+    status: Proposed
+    details: >-
+      Map porygon-viewer under existing atlas.porygon without duplicating the
+      parent project. Decide explicit central enrollment using source-repos
+      semantics and available checkout path; do not write Atlas deltas or
+      claim dashboard sync from this local binding alone.
