@@ -1,23 +1,6 @@
 # Porygon2 & Chief Style Lab
 
-> **V1 user guide / historical implementation reference.** The viewer is being generalized through a hybrid V2 rebuild. This file describes the **existing V1 behaviour**, not V2 completion.
-
-## Project coordination (Atlas v2)
-
-This viewer is a scoped project inside a multi-purpose GitHub Pages repository. The Atlas source binding lives at [../.atlas/project.yaml](../.atlas/project.yaml). The source-of-truth roles are:
-
-| Role | Authority |
-|---|---|
-| Shared state, purpose and next checkpoint | [PROJECT.yaml](./PROJECT.yaml) |
-| Canonical milestone/task/thread IDs, status, acceptance | [WORK.yaml](./WORK.yaml) |
-| Technical/release invariants | [CONTRACT.md](./CONTRACT.md) |
-| Architecture and V1/V2 boundaries | [ARCHITECTURE.md](./ARCHITECTURE.md) |
-| Accepted decisions and open choices | [DECISIONS.md](./DECISIONS.md) |
-| Dated evidence and history | [PROGRESS.md](./PROGRESS.md) |
-| Roadmap and execution reading guides | [ROADMAP.md](./ROADMAP.md), [TASKS.md](./TASKS.md) |
-| Codex task entry and detailed research | [Issue #7](https://github.com/raskal-labs/raskal-labs.github.io/issues/7), [V2_PLAN.md](./V2_PLAN.md), [V2_RESOURCES.md](./V2_RESOURCES.md), [V2_UX_REFERENCES.md](./V2_UX_REFERENCES.md) |
-
-**V2 runtime is not yet implemented.** The Atlas binding does not alone prove registration in the central Atlas dashboard. Existing V1 remains active at `/porygon2/`.
+> **Hosting copy / V1 reference.** The authoritative development repo, Atlas contracts, work queue, roadmap and V2 plan are at [raskal-labs/3d-model-viewer](https://github.com/raskal-labs/3d-model-viewer). This page is not the canonical source.
 
 GitHub Pages viewer at `/porygon2/`. Serve over HTTPS; opening HTML directly from Files on iOS does not load JavaScript modules.
 
