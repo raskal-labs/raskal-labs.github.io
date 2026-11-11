@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#090818">
+    <meta name="description" content="Raskal Labs Living Workshop — a fresh, source-aware rebuild.">
+    <title>Raskal Labs — Living Workshop</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Raskal Labs">
+        <a class="brand" href="#workshop" aria-label="Raskal Labs home">
+          <img class="brand-emblem" src="assets/brand/raskal-emblem-transparent.png" alt="">
+          <img class="brand-wordmark" src="assets/brand/raskal-labs-wordmark-original.png" alt="Raskal Labs">
+        </a>
+      </header>
+
+      <main>
+        <section class="hero" id="workshop" aria-labelledby="workshop-title">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="signal"></span>Living workshop / fresh rebuild</p>
+            <h1 id="workshop-title">A cleaner place for the little things that make the world glow.</h1>
+            <p class="lede">A fresh, source-aware workshop built around the supplied Pocket Fonts and original Raskal Labs marks. The codex images are clean, transparent isolation passes from the supplied Little Raskals concept sheets; their untouched originals stay with the project.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#codex">Meet the studies <span aria-hidden="true">↓</span></a>
+              <button class="button button-quiet" type="button" data-dialog-open="provenance">Read source notes</button>
+            </div>
+            <dl class="signal-list">
+              <div><dt>Type</dt><dd>Pocket Fonts v1.1</dd></div>
+              <div><dt>Marks</dt><dd>User-supplied originals</dd></div>
+              <div><dt>Art</dt><dd>Source-derived cutouts</dd></div>
+            </dl>
+          </div>
+
+          <div class="focus-stage" aria-live="polite">
+            <div class="focus-well" aria-hidden="true"></div>
+            <div class="focus-aura" aria-hidden="true"></div>
+            <img id="focus-image" class="focus-image" src="assets/creatures/wisp-source-derived.png" alt="Wisp, a purple-horned terminal-faced Raskal source-derived cutout">
+            <div class="focus-caption">
+              <p class="focus-kicker" id="focus-kicker">Source-derived cutout / 2026</p>
+              <h2 id="focus-name">Wisp</h2>
+              <p id="focus-copy">Sees the unseen, carrying a terminal-smirk face and purple horn silhouette from the supplied concept sheet.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="codex-section section" id="codex" aria-labelledby="codex-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="signal"></span>Specimen console</p>
+              <h2 id="codex-title">The codex, cut clean.</h2>
+            </div>
+            <p>Each character is a transparent, source-derived cutout. Select one to bring it into the workshop field.</p>
+          </div>
+
+          <div class="codex-grid" role="list" aria-label="New workshop creature studies">
+            <button class="creature-card" type="button" data-creature="scout" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/scout-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Scout</strong><small>Explore</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card is-active" type="button" data-creature="wisp" role="listitem" aria-pressed="true">
+              <span class="art-board"><img src="assets/creatures/wisp-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Wisp</strong><small>Scan</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="golem" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/golem-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Golem</strong><small>Guard</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="prism" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/prism-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Prism</strong><small>Analyze</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="crawler" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/crawler-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Crawler</strong><small>Build</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="shelly" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/shelly-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Shelly</strong><small>Archive</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="bloop" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/bloop-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Bloop</strong><small>Assist</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+            <button class="creature-card" type="button" data-creature="tink" role="listitem" aria-pressed="false">
+              <span class="art-board"><img src="assets/creatures/tink-source-derived.png" alt=""></span>
+              <span class="card-meta"><strong>Tink</strong><small>Invent</small></span>
+              <span class="card-pip" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <aside class="art-policy" aria-label="Artwork provenance note">
+            <span class="policy-mark" aria-hidden="true">◆</span>
+            <p><strong>Artwork source:</strong> these are clean isolation passes from the supplied Little Raskals workshop sheet: text, card borders, and background elements removed for transparent presentation. The untouched source sheets remain in the project.</p>
+          </aside>
+        </section>
+
+        <section class="lineage-section section" id="lineage" aria-labelledby="lineage-title">
+          <div class="section-heading lineage-heading">
+            <div>
+              <p class="eyebrow"><span class="signal"></span>Lineage ledger</p>
+              <h2 id="lineage-title">Documented milestones, without invented evidence.</h2>
+            </div>
+            <p>The earlier workshop identified these milestones. Its image files were not recoverable after the preview expired, so this rebuild deliberately shows no substitute thumbnails as if they were originals.</p>
+          </div>
+
+          <ol class="lineage-list">
+            <li>
+              <div class="lineage-dot" aria-hidden="true"><span>01</span></div>
+              <div class="lineage-entry"><time datetime="2026-08-09">09 Aug 2026</time><h3>Integrated horns</h3><p>Recorded as an original stage in the prior registry. Source image unavailable in this rebuild.</p></div>
+              <div class="source-state">Image not recovered</div>
+            </li>
+            <li>
+              <div class="lineage-dot" aria-hidden="true"><span>02</span></div>
+              <div class="lineage-entry"><time datetime="2026-08-10">10 Aug 2026</time><h3>Round head A</h3><p>Recorded as an original stage in the prior registry. Source image unavailable in this rebuild.</p></div>
+              <div class="source-state">Image not recovered</div>
+            </li>
+            <li>
+              <div class="lineage-dot" aria-hidden="true"><span>03</span></div>
+              <div class="lineage-entry"><time datetime="2026-08-10">10 Aug 2026</time><h3>Round head B</h3><p>Recorded as an original stage in the prior registry. Source image unavailable in this rebuild.</p></div>
+              <div class="source-state">Image not recovered</div>
+            </li>
+            <li>
+              <div class="lineage-dot" aria-hidden="true"><span>04</span></div>
+              <div class="lineage-entry"><time datetime="2026-09-19">19 Sep 2026</time><h3>48×48 geometry</h3><p>Recorded as documented geometry in the prior registry. Source image unavailable in this rebuild.</p></div>
+              <div class="source-state">Image not recovered</div>
+            </li>
+            <li>
+              <div class="lineage-dot" aria-hidden="true"><span>05</span></div>
+              <div class="lineage-entry"><time datetime="2026-09-20">20 Sep 2026</time><h3>V13 pixel target</h3><p>Recorded as a documented target in the prior registry. Source image unavailable in this rebuild.</p></div>
+              <div class="source-state">Image not recovered</div>
+            </li>
+            <li class="lineage-current">
+              <div class="lineage-dot" aria-hidden="true"><span>06</span></div>
+              <div class="lineage-entry"><time datetime="2026-11-11">Current rebuild</time><h3>Supplied purple emblem</h3><p>The user-supplied standard purple pixel Raskal head is retained as the current brand asset. It is not claimed as a historical source image.</p></div>
+              <img class="lineage-emblem" src="assets/brand/raskal-emblem-transparent.png" alt="Current purple pixel Raskal emblem">
+            </li>
+          </ol>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Raskal Labs Living Workshop</span>
+        <button type="button" class="text-button" data-dialog-open="provenance">Source &amp; art notes</button>
+      </footer>
+    </div>
+
+    <dialog class="provenance-dialog" id="provenance">
+      <form method="dialog">
+        <button class="dialog-close" value="close" aria-label="Close source notes">×</button>
+      </form>
+      <p class="eyebrow"><span class="signal"></span>Source notes</p>
+      <h2>What is original, what is new.</h2>
+      <div class="provenance-copy">
+        <p><strong>Brand:</strong> the RASKAL LABS wordmark and purple pixel Raskal emblem are the supplied source files. The emblem shown on the page is a non-destructive transparent derivative; the untouched original is retained in the project.</p>
+        <p><strong>Fonts:</strong> Pocket Fonts v1.1 is supplied by the user and served locally as WOFF2. The page declares and uses Pocket Display, Pocket Text, and Pocket Mono.</p>
+        <p><strong>Codex illustrations:</strong> Scout, Wisp, Golem, Prism, Crawler, Shelly, Bloop, and Tink are source-derived, transparent isolation passes from the supplied Little Raskals sheet. They preserve the terminal-smirk face and horn silhouette rather than substitute a new character design.</p>
+        <p><strong>Lineage:</strong> dates and milestone names come from the prior workshop registry. Its historical image files are not included here, and the site does not substitute fabricated evidence.</p>
+      </div>
+      <a class="button button-primary" href="provenance/ASSET-REGISTRY.json" target="_blank" rel="noopener">Open asset registry</a>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+

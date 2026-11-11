@@ -1,0 +1,57 @@
+{
+  "project": "Raskal Labs Living Workshop — fresh rebuild",
+  "built_at": "2026-11-11",
+  "policy": "The site distinguishes supplied original assets, non-destructive derivatives, source-derived isolation passes, and prior registry-only facts. It does not represent reconstructed or newly created imagery as historical source evidence.",
+  "font_package": {
+    "source": "User-supplied Pocket-Fonts-v1.1.zip",
+    "archive_sha256": "990189EA6F16C53F1D2580650EA6EDBF899B240001C47EA9F0EFB33828413081",
+    "deployed_format": "WOFF2",
+    "license_file": "assets/fonts/LICENSE.txt",
+    "families": ["Pocket Display", "Pocket Text", "Pocket Mono"]
+  },
+  "brand_assets": [
+    {
+      "file": "assets/brand/raskal-labs-wordmark-original.png",
+      "role": "Supplied RASKAL LABS wordmark",
+      "source": "User attachment from referenced conversation",
+      "sha256": "7D7BBB9333D856B789CF72F1283FAD01D6B7061C3A1D679F45DE37788A54943F",
+      "status": "Original supplied asset"
+    },
+    {
+      "file": "assets/brand/raskal-emblem-original.png",
+      "role": "Supplied purple pixel Raskal emblem",
+      "source": "User attachment from referenced conversation",
+      "sha256": "9BB94D8ADDB9EACA52B279C1FC381F6036E3D55032CFC7C29836991D361FC0FC",
+      "status": "Original supplied asset"
+    },
+    {
+      "file": "assets/brand/raskal-emblem-transparent.png",
+      "role": "Header and lineage emblem",
+      "source": "Derived losslessly from raskal-emblem-original.png by removing only edge-connected near-white background pixels; the original remains in the project.",
+      "status": "Non-destructive derivative"
+    }
+  ],
+  "source_concept_sheets": [
+    {"file": "assets/sources/little-raskals-workshop-sheet-original.jpg", "sha256": "3201AD0462F85A57BE674193FDFF828D65A601E78AD12DA6EA23CE1DBC0E13CD", "status": "User-supplied original source sheet"},
+    {"file": "assets/sources/little-raskals-shadowkin-sheet-original.jpg", "sha256": "0CD5FAD6143DE2634E371C893911D2C2DACE7D77B6907BBCA595C6E6A6116207", "status": "User-supplied original source sheet"},
+    {"file": "assets/sources/little-raskals-forms-sheet-original.jpg", "sha256": "F7545C77BA2BDC86FCDCB396759C12617F15EB236D1171EC176DD18F3E1E3CB1", "status": "User-supplied original source sheet"}
+  ],
+  "source_derived_codex_cutouts": [
+    {"file": "assets/creatures/scout-source-derived.png", "sha256": "F408F256A871BAFCD5AD00666646AC8064144EA0C84566087AF9FBA793FE5BE2", "source": "Little Raskals workshop sheet / Scout card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/wisp-source-derived.png", "sha256": "CE7E77794BC697D1D120A80611A7CD618D25ED93702C188D1EE555DC79F0C563", "source": "Little Raskals workshop sheet / Wisp card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/golem-source-derived.png", "sha256": "253D82CFA83E986755C266FFA0D1AADC345E275596329C0FE5A18FF778562FB0", "source": "Little Raskals workshop sheet / Golem card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/prism-source-derived.png", "sha256": "0575FE061C047EF03AACBB29FFFFCD4035DC40280D160B60BC76753582C20FAB", "source": "Little Raskals workshop sheet / Prism card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/crawler-source-derived.png", "sha256": "7289F2EB6F1211AD862982CD47042D365E404B1EF2E26E0AE9AFF4CECBE946B6", "source": "Little Raskals workshop sheet / Crawler card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/shelly-source-derived.png", "sha256": "F6C59BD8F4565F799436A5E6E733A685A3FA7FE9BAAFFB9A4C2004D154208D22", "source": "Little Raskals workshop sheet / Shelly card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/bloop-source-derived.png", "sha256": "B3F095C0D62820ED8393E58CA523C21D757B4BF1DCD262FBF2A700A0F776505C", "source": "Little Raskals workshop sheet / Bloop card", "status": "Transparent isolation pass, 2026-11-11"},
+    {"file": "assets/creatures/tink-source-derived.png", "sha256": "079359A73009B0E9AE5B47EDBD9CF9D5765CC6AD70E5B12D5A905F3125D6276C", "source": "Little Raskals workshop sheet / Tink card", "status": "Transparent isolation pass, 2026-11-11"}
+  ],
+  "prior_registry_milestones": [
+    {"date": "2026-08-09", "title": "Integrated horns", "prior_status": "Original", "source_image": "Not recovered in this rebuild"},
+    {"date": "2026-08-10", "title": "Round head A", "prior_status": "Original", "source_image": "Not recovered in this rebuild"},
+    {"date": "2026-08-10", "title": "Round head B", "prior_status": "Original", "source_image": "Not recovered in this rebuild"},
+    {"date": "2026-09-19", "title": "48×48 geometry", "prior_status": "Documented", "source_image": "Not recovered in this rebuild"},
+    {"date": "2026-09-20", "title": "V13 pixel target", "prior_status": "Documented", "source_image": "Not recovered in this rebuild"}
+  ]
+}
+
